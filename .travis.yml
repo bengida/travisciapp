@@ -15,17 +15,5 @@ jobs:
       script:
        - mvn clean install
        - cp .travis.settings.xml $HOME/.m2/settings.xml
-       - mvn package deploy -DmuleDeploy -Dserver=$server -Dworkers=$workers -DworkerType=$workerType -Denvironment=$environment -DmuleVersion=$muleVersion -DappName=$appName
+       - mvn clean install package deploy -X -DmuleDeploy -Dserver=$server -Dworkers=$workers -DworkerType=$workerType -Denvironment=$environment -DmuleVersion=$muleVersion -DappName=$appName
       if: branch = dev
-  #    
-  #  - stage: test
-  #    name: 'Perform Integration Testing'
-  #    node_js: 0.12
-   #   install: npm install -g newman
-   #   before_script:
-   #    - npm --version
-   #    - node --version
-   #    - node_modules/.bin/newman --version
-   #   script:
-   #    - node_modules/.bin/newman run DateTime-app.postman_collection.json --disable-unicode
-   #   if: branch = dev
