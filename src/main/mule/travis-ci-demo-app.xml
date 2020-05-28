@@ -9,7 +9,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</http:listener-config>
 	<flow name="travis-ci-demo-appFlow" doc:id="37502603-a7b3-434d-9f95-e0efab5943a3" >
 		<http:listener doc:name="Listener" doc:id="c1caa9dc-b6b7-4dca-89ab-dd45b6d6a28f" config-ref="HTTP_Listener_config" path="/v1.0/datetime"/>
-		<set-payload value="#[now()]" doc:name="Set Payload" doc:id="8ed413db-2c97-465f-bc5b-96e0ea788071" />
+		<set-payload value='#["payload" + now()]' doc:name="Set Payload" doc:id="8ed413db-2c97-465f-bc5b-96e0ea788071" />
 	</flow>          
 </mule> 
               
