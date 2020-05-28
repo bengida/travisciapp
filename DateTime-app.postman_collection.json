@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "e6a9a6d7-3417-4a05-915e-0db646759531",
+		"name": "DateTime-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch System Date Time",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b74240f4-2194-4fd4-92f8-8b822a669344",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://travis-datetime-app.us-e2.cloudhub.io/v1.0/datetime",
+					"protocol": "http",
+					"host": [
+						"travis-datetime-app",
+						"us-e2",
+						"cloudhub",
+						"io"
+					],
+					"path": [
+						"v1.0",
+						"datetime"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
