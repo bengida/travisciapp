@@ -36,8 +36,6 @@
 				<artifactId>mule-app-maven-plugin</artifactId>
 				<version>${mule.tools.version}</version>
 				<extensions>true</extensions>
-			</plugin>
-			<plugin>
 				<configuration>
 					<cloudHubDeployment>
 						<server>${server}</server>
