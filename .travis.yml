@@ -1,19 +1,14 @@
-java:
- - openjdk8
-
-node_js:
- - 0.12
- 
+language: java
+jdk:
+    - openjdk8
+cache:
+    directories:
+        - $HOME/.cache
 jobs:
-  include:
     - stage: deploy
       name: 'Deploy To Dev Environment'
-      cache:
-        directories:
-         - $HOME/.cache
-      java: openjdk8
       script:
        - mvn clean install
        - cp .travis.settings.xml $HOME/.m2/settings.xml
-       - mvn clean install package deploy -DmuleDeploy -Dserver=$server -Dworkers=$workers -DworkerType=$workerType -Denvironment=$environment -DmuleVersion=$muleVersion -DappName=$appName
-        if: branch = dev
+       - mvn deploy -DmuleDeploy -Dserver=$server -Denvironment=$environment -Dworkers=$workers -DworkerType=$workerType -DmuleVersion=$muleVersion -DappName=$appName
+      if: branch = dev
